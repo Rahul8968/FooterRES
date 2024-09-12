@@ -193,35 +193,42 @@
   </footer>
 
   <script>
-    const headings = document.querySelectorAll('footer h5');
-    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+   const headings = document.querySelectorAll('footer h5');
+const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
 
-    function toggleContent(heading) {
-      heading.classList.toggle('active');
-      const content = heading.nextElementSibling;
-      content.classList.toggle('active');
+function toggleContent(heading) {
+  // Only toggle on mobile screens
+  if (window.innerWidth <= 768) {
+    heading.classList.toggle('active');
+    const content = heading.nextElementSibling;
+    content.classList.toggle('active');
+  }
+}
+
+headings.forEach((heading) => {
+  heading.addEventListener('click', () => toggleContent(heading));
+});
+
+// Handle screen changes to open all content on desktop and collapse on mobile
+function handleScreenChange(e) {
+  headings.forEach((heading) => {
+    const content = heading.nextElementSibling;
+    if (e.matches) {
+      // Mobile view: collapse all content
+      content.classList.remove('active');
+    } else {
+      // Desktop view: expand all content
+      content.classList.add('active');
     }
+  });
+}
 
-    function handleScreenChange(e) {
-      headings.forEach((heading) => {
-        const content = heading.nextElementSibling;
-        if (e.matches) {
-          // Mobile view
-          heading.addEventListener('click', () => toggleContent(heading));
-          content.classList.remove('active');
-        } else {
-          // Desktop view
-          heading.removeEventListener('click', () => toggleContent(heading));
-          content.classList.add('active');
-        }
-      });
-    }
+// Run initially to set correct state based on current screen size
+handleScreenChange(mobileMediaQuery);
 
-    // Run initially
-    handleScreenChange(mobileMediaQuery);
+// Add listener for screen size changes
+mobileMediaQuery.addListener(handleScreenChange);
 
-    // Add listener for screen size changes
-    mobileMediaQuery.addListener(handleScreenChange);
   </script>
 </body>
 </html>
