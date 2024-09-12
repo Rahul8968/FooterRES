@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Example</title>
+  <style>
+    /* General footer styling */
+    footer {
+      background-color: rgb(0, 136, 178);
+      padding: 20px 50px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .footer-column {
+      flex: 1;
+      padding: 0 15px;
+    }
+
+    .footer-column h5 {
+      margin-top: 0;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .footer-column ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+    }
+
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-column p a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-column p a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom-info {
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .map-container iframe {
+      width: 250px;
+      height: 250px;
+      border: 0;
+    }
+
+    .gap {
+      margin-top: 70px;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .footer-row {
+        flex-direction: column;
+      }
+
+      .footer-column {
+        margin-bottom: 20px;
+      }
+
+      .footer-column h5 {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .footer-column h5::after {
+        content: '+';
+        float: right;
+      }
+
+      .footer-column h5.active::after {
+        content: '-';
+      }
+
+      .footer-column .content {
+        display: none;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .footer-column .content.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-row">
+        <div class="footer-column">
+          <h5>IMPORTANT LINKS</h5>
+          <div class="content">
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Returns & Warranty</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          
+          <h5 class="gap">US and Canadian Cities</h5>
+          <div class="content">
+            <p>GAO Tek serves North America – <a href="#">Learn More</a></p>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>HEAD OFFICE USA</h5>
+          <div class="content">
+            <p>GAO Tek Inc.<br>
+            244 Fifth Avenue, Suite A31<br>
+            Manhattan, New York,<br>
+            N.Y., 10001<br>
+            USA</p>
+
+            <p><strong>Call Us</strong><br>
+            Toll Free: 1-877-585-9555</p>
+
+            <p><strong>Email Us</strong><br>
+            <a href="mailto:sales@gaotek.com">sales@gaotek.com</a></p>
+          </div>
+        </div>
+
+        <div class="footer-column map-container">
+          <h5>CANADIAN OFFICE</h5>
+          <div class="content">
+            <p>GAO Tek Inc.<br>
+            1885 Clements Rd, Suites 215-218<br>
+            Pickering, Greater Toronto Area<br>
+            Ontario, L1W 3V4<br>
+            Canada</p>
+
+            <p><strong>Call Us</strong><br>
+            Toll Free: 1-877-585-9555<br>
+            Phone: 289-660-5590<br>
+            Fax: 289-660-5591</p>
+
+            <p><strong>Email Us</strong><br>
+            <a href="mailto:sales@gaotek.com">sales@gaotek.com</a></p>
+
+            <h5>Find Us</h5>
+            <div class="content">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.649426944253!2d-74.0015460845915!3d40.74751197932696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ab460c37b5%3A0x7a9dcb9792fc0dc3!2s244%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sin!4v1694358384271!5m2!1sen!2sin" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-info">
+      <p>&copy; 2024 YourCompany. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const headings = document.querySelectorAll('footer h5');
+    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+
+    function toggleContent(heading) {
+      heading.classList.toggle('active');
+      const content = heading.nextElementSibling;
+      content.classList.toggle('active');
+    }
+
+    function handleScreenChange(e) {
+      headings.forEach((heading) => {
+        const content = heading.nextElementSibling;
+        if (e.matches) {
+          // Mobile view
+          heading.addEventListener('click', () => toggleContent(heading));
+          content.classList.remove('active');
+        } else {
+          // Desktop view
+          heading.removeEventListener('click', () => toggleContent(heading));
+          content.classList.add('active');
+        }
+      });
+    }
+
+    // Run initially
+    handleScreenChange(mobileMediaQuery);
+
+    // Add listener for screen size changes
+    mobileMediaQuery.addListener(handleScreenChange);
+  </script>
+</body>
+</html>
