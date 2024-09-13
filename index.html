@@ -8,9 +8,17 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
 
   <style>
+    .head{
+      background-color: black;
+      height: 10px;
+    }
+   .footer-spacing {
+  background-color: #f0f0f0; /* Set this to any plain background color you prefer */
+  height: 500px; /* Adjust the height as needed */
+}
+
     /* General footer styling */
     footer {
-      
       background-color: rgb(0, 136, 178);
       padding: 20px 50px;
       color: rgba(255, 255, 255, 0.6);
@@ -88,7 +96,7 @@
     }
 
     .gap {
-      margin-top: 50px !important;
+      margin-top: 70px !important;
     }
 
     /* Mobile styles */
@@ -106,18 +114,36 @@
       }
 
       .footer-column h5:nth-of-type(1) {
-        margin-bottom: 30px; /* Extra gap before the second heading */
+        margin-bottom: 0; /* Extra gap before the second heading */
       }
-
       .footer-column h5::after {
-        content: "ᐯ"; /* Arrow symbol */
-        display: inline-block;
-        font-size: 0.5rem; /* Adjust the size as needed */
-        font-weight: normal;
-        transform: scaleX(1.8); /* Adjust horizontal stretching */
-        float: right;
-        margin-left: 0.5rem;
-      }
+  content: "ᐯ"; /* Arrow symbol */
+  display: inline-block;
+  font-size: 0.5rem; /* Adjust the size of the arrow */
+  font-weight: normal;
+  width: 20px; /* Set equal width and height for the circle */
+  height: 20px; 
+  transform: scaleX(1.8);
+  line-height: 20px; /* Align the arrow vertically */
+  text-align: center; /* Align the arrow horizontally */
+  border-radius: 50%; /* Make it a perfect circle */
+  margin-left: 0.5rem;
+  background-color: transparent; /* Default background */
+  color: rgba(255, 255, 255, 0.6); /* Default arrow color */
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  float:right;
+}
+
+/* Rotate the arrow upwards and apply background when its associated content is active */
+.footer-column h5.active::after {
+  transform: rotate(180deg) ; /* Rotate the arrow */
+  background-color: rgb(254, 254, 254); /* Set background to grey when active */
+  color: black; /* Set arrow color to black */
+}
+
+
+
+     
 
       /* Remove arrow for specific headings */
       .footer-column.no-arrow h5::after {
@@ -143,6 +169,9 @@
   </style>
 </head>
 <body>
+  <header class="head"></header>
+  <div class="footer-spacing"></div>
+
   <footer>
     <div class="footer-container">
       <div class="footer-row">
@@ -219,35 +248,36 @@
   </footer>
 
   <script>
-    const headings = document.querySelectorAll('footer h5');
-    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+   const headings = document.querySelectorAll('footer h5');
+const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
 
-    function toggleContent(heading) {
-      // Only toggle on mobile screens and ignore specific headings
-      if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
-        heading.classList.toggle('active');
-        const content = heading.nextElementSibling;
-        content.classList.toggle('active');
-      }
+function toggleContent(heading) {
+  // Only toggle on mobile screens and ignore specific headings
+  if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
+    heading.classList.toggle('active');
+    const content = heading.nextElementSibling;
+    content.classList.toggle('active');
+  }
+}
+
+headings.forEach((heading) => {
+  heading.addEventListener('click', () => toggleContent(heading));
+});
+
+function handleScreenChange(e) {
+  headings.forEach((heading) => {
+    const content = heading.nextElementSibling;
+    if (e.matches) {
+      content.classList.remove('active');
+    } else {
+      content.classList.add('active');
     }
+  });
+}
 
-    headings.forEach((heading) => {
-      heading.addEventListener('click', () => toggleContent(heading));
-    });
+handleScreenChange(mobileMediaQuery);
+mobileMediaQuery.addListener(handleScreenChange);
 
-    function handleScreenChange(e) {
-      headings.forEach((heading) => {
-        const content = heading.nextElementSibling;
-        if (e.matches) {
-          content.classList.remove('active');
-        } else {
-          content.classList.add('active');
-        }
-      });
-    }
-
-    handleScreenChange(mobileMediaQuery);
-    mobileMediaQuery.addListener(handleScreenChange);
   </script>
 </body>
 </html>
