@@ -8,9 +8,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
 
   <style>
-    body{
-      width: 100%;
-    }
+    * {
+  box-sizing: border-box;
+}
+body {
+  margin: 0; /* Remove default margin from the body */
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent any horizontal scrolling */
+}
     .head{
       width: 100%;
       background-color: black;
@@ -24,38 +30,45 @@
 
     /* General footer styling */
     footer { 
-      width: 95%;
-      background-color: rgb(0, 136, 178);
-      padding: 20px 40px;
-      color: rgba(255, 255, 255, 0.6);
-      font-family: 'Poppins', sans-serif;
-    }
+  width: 100%; /* Make sure footer doesn't exceed 100% */
+  max-width: 100%;
+  background-color: rgb(0, 136, 178);
+  padding: 20px;
+  color: rgb(255 255 255 / 77%);
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container {
+  width: 100%;
+  max-width: 1200px; /* Optional: Adjust the maximum width as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  margin: 0 auto; /* Center container horizontally */
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-left: 10px; /* Reduce padding to prevent overflow */
+  padding-right: 10px; /* Add padding-right to avoid overflow on mobile */
+  flex-wrap: wrap; /* Ensure that content wraps on smaller screens */
+}
 
-    .footer-container {
-      width: 97%;
-      display: flex;
-      flex-direction: column;
-    }
+.footer-column {
+  flex: 1;
+  margin: 0 80px; /* Adjust margins */
+}
 
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
+.footer-column h5 {
+  color: #fff;
+  cursor: pointer;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
 
-    .footer-column {
-      flex: 1;
-      padding: 0 15px;
-    }
-
-    .footer-column h5 {
-      color: #fff;
-      cursor: pointer;
-      margin: 0;
-      background-color: transparent; /* Removed background color */
-      font-size: 16px; /* Font size for headings */
-      font-weight: 600; /* Bold weight for headings */
-    }
 
     /* Gap between headings on larger screens */
     .footer-column h5:nth-of-type(1) {
@@ -108,14 +121,22 @@
 
     /* Mobile styles */
     @media (max-width: 768px) {
-      .footer-row {
-        flex-direction: column;
-      }
+      @media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    padding-left: 0; /* Remove extra padding */
+    padding-right: 0;
+  }
 
-      .footer-column {
-        margin-bottom: 20px;
-      }
+  .footer-column {
+    margin-bottom: 20px;
+    text-align: left; /* Align content to the right */
+  }
 
+  .footer-bottom-info {
+    text-align: left; /* Align footer bottom info to the right */
+  }
+}
       .footer-column h5 {
         margin-bottom: 15px; /* Consistent gap between headings */
       }
@@ -126,8 +147,8 @@
       .footer-column h5::after {
   content: "ᐯ"; /* Arrow symbol */
   display: inline-block;
-  font-size: 0.5rem; /* Adjust the size of the arrow */
-  font-weight: normal;
+  font-size: 0.6rem; /* Adjust the size of the arrow */
+  font-weight: bold;
   width: 20px; /* Set equal width and height for the circle */
   height: 20px; 
   transform: scaleX(1.8);
@@ -199,7 +220,7 @@
           
           <h5 class="gap">US AND CANADIAN CITIES</h5>
           <div class="content">
-            <p>GAO Tek serves North America – <a href="#">Learn More</a></p>
+            <p style="color: #fff;">GAO Tek serves North America – <a href="#">Learn More</a></p>
           </div>
         </div>
 
