@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Footer Example</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
 
   <style>
     /* General footer styling */
     footer {
+      
       background-color: rgb(0, 136, 178);
       padding: 20px 50px;
       color: rgba(255, 255, 255, 0.6);
+      font-family: 'Poppins', sans-serif;
     }
 
     .footer-container {
@@ -31,9 +34,17 @@
     }
 
     .footer-column h5 {
-      /* margin-top: 0; */
       color: #fff;
       cursor: pointer;
+      margin: 0;
+      background-color: transparent; /* Removed background color */
+      font-size: 16px; /* Font size for headings */
+      font-weight: 600; /* Bold weight for headings */
+    }
+
+    /* Gap between headings on larger screens */
+    .footer-column h5:nth-of-type(1) {
+      margin-bottom: 30px; /* Extra gap before the second heading on larger screens */
     }
 
     .footer-column ul {
@@ -77,7 +88,7 @@
     }
 
     .gap {
-      margin-top: 70px;
+      margin-top: 50px !important;
     }
 
     /* Mobile styles */
@@ -91,45 +102,42 @@
       }
 
       .footer-column h5 {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 10px;
-        margin-bottom: 10px;
-        cursor: pointer;
+        margin-bottom: 15px; /* Consistent gap between headings */
       }
+
+      .footer-column h5:nth-of-type(1) {
+        margin-bottom: 30px; /* Extra gap before the second heading */
+      }
+
       .footer-column h5::after {
-  content: "ᐯ"; /* Symbol */
-  display: inline-block;
-  font-size: 0.7rem; /* Adjust the size as needed */
-  font-weight: normal;
-  transform: scaleX(1.8); /* Adjust horizontal stretching */
-  /* transform: scaleY(1.5); */ /* Uncomment for vertical stretching */
-  float: right;
-  margin-left: 0.5rem; /* Add space between the heading text and symbol */
-}
+        content: "ᐯ"; /* Arrow symbol */
+        display: inline-block;
+        font-size: 0.5rem; /* Adjust the size as needed */
+        font-weight: normal;
+        transform: scaleX(1.8); /* Adjust horizontal stretching */
+        float: right;
+        margin-left: 0.5rem;
+      }
 
-
-
-
-.footer-column h5.active::after {
-  content: "ᐯ"; /* Symbol */
-  display: inline-block;
-  font-size: 0.7rem; /* Adjust the size as needed */
-  font-weight: normal; /* Ensures the symbol is not bold */
-  
-  transform: rotate(180deg) scaleX(1.8); /* Rotates the symbol upwards */
-  transform-origin: center; /* Ensures rotation is centered */
-  margin-left: 0.5rem;
-  }
-
+      /* Remove arrow for specific headings */
+      .footer-column.no-arrow h5::after {
+        content: ""; /* Remove arrow */
+        display: none;
+      }
 
       .footer-column .content {
         display: none;
         padding: 10px;
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: transparent; /* Remove background color */
       }
 
       .footer-column .content.active {
         display: block;
+      }
+
+      /* Ensure content of no-dropdown is always visible */
+      .footer-column.no-dropdown .content {
+        display: block !important;
       }
     }
   </style>
@@ -153,14 +161,14 @@
             </ul>
           </div>
           
-          <h5 class="gap">US and Canadian Cities</h5>
+          <h5 class="gap">US AND CANADIAN CITIES</h5>
           <div class="content">
             <p>GAO Tek serves North America – <a href="#">Learn More</a></p>
           </div>
         </div>
 
-        <div class="footer-column">
-          <h5>HEAD OFFICE USA</h5>
+        <div class="footer-column no-dropdown no-arrow">
+          <h5>HEAD OFFICE USA</h5> <!-- No dropdown and no arrow -->
           <div class="content">
             <p>GAO Tek Inc.<br>
             244 Fifth Avenue, Suite A31<br>
@@ -176,8 +184,8 @@
           </div>
         </div>
 
-        <div class="footer-column map-container">
-          <h5>CANADIAN OFFICE</h5>
+        <div class="footer-column map-container no-dropdown no-arrow">
+          <h5>CANADIAN OFFICE</h5> <!-- No dropdown and no arrow -->
           <div class="content">
             <p>GAO Tek Inc.<br>
             1885 Clements Rd, Suites 215-218<br>
@@ -193,7 +201,7 @@
             <p><strong>Email Us</strong><br>
             <a href="mailto:sales@gaotek.com">sales@gaotek.com</a></p>
 
-            <h5>Find Us</h5>
+            <!-- Removed "Find Us" heading -->
             <div class="content">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.649426944253!2d-74.0015460845915!3d40.74751197932696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ab460c37b5%3A0x7a9dcb9792fc0dc3!2s244%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sin!4v1694358384271!5m2!1sen!2sin" 
               allowfullscreen="" 
@@ -211,42 +219,35 @@
   </footer>
 
   <script>
-   const headings = document.querySelectorAll('footer h5');
-const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+    const headings = document.querySelectorAll('footer h5');
+    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
 
-function toggleContent(heading) {
-  // Only toggle on mobile screens
-  if (window.innerWidth <= 768) {
-    heading.classList.toggle('active');
-    const content = heading.nextElementSibling;
-    content.classList.toggle('active');
-  }
-}
-
-headings.forEach((heading) => {
-  heading.addEventListener('click', () => toggleContent(heading));
-});
-
-// Handle screen changes to open all content on desktop and collapse on mobile
-function handleScreenChange(e) {
-  headings.forEach((heading) => {
-    const content = heading.nextElementSibling;
-    if (e.matches) {
-      // Mobile view: collapse all content
-      content.classList.remove('active');
-    } else {
-      // Desktop view: expand all content
-      content.classList.add('active');
+    function toggleContent(heading) {
+      // Only toggle on mobile screens and ignore specific headings
+      if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
+        heading.classList.toggle('active');
+        const content = heading.nextElementSibling;
+        content.classList.toggle('active');
+      }
     }
-  });
-}
 
-// Run initially to set correct state based on current screen size
-handleScreenChange(mobileMediaQuery);
+    headings.forEach((heading) => {
+      heading.addEventListener('click', () => toggleContent(heading));
+    });
 
-// Add listener for screen size changes
-mobileMediaQuery.addListener(handleScreenChange);
+    function handleScreenChange(e) {
+      headings.forEach((heading) => {
+        const content = heading.nextElementSibling;
+        if (e.matches) {
+          content.classList.remove('active');
+        } else {
+          content.classList.add('active');
+        }
+      });
+    }
 
+    handleScreenChange(mobileMediaQuery);
+    mobileMediaQuery.addListener(handleScreenChange);
   </script>
 </body>
 </html>
