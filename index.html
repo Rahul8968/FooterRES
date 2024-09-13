@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Footer Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <style>
     /* General footer styling */
     footer {
@@ -29,7 +31,7 @@
     }
 
     .footer-column h5 {
-      margin-top: 0;
+      /* margin-top: 0; */
       color: #fff;
       cursor: pointer;
     }
@@ -94,15 +96,31 @@
         margin-bottom: 10px;
         cursor: pointer;
       }
-
       .footer-column h5::after {
-        content: '+';
-        float: right;
-      }
+  content: "ᐯ"; /* Symbol */
+  display: inline-block;
+  font-size: 0.7rem; /* Adjust the size as needed */
+  font-weight: normal;
+  transform: scaleX(1.8); /* Adjust horizontal stretching */
+  /* transform: scaleY(1.5); */ /* Uncomment for vertical stretching */
+  float: right;
+  margin-left: 0.5rem; /* Add space between the heading text and symbol */
+}
 
-      .footer-column h5.active::after {
-        content: '-';
-      }
+
+
+
+.footer-column h5.active::after {
+  content: "ᐯ"; /* Symbol */
+  display: inline-block;
+  font-size: 0.7rem; /* Adjust the size as needed */
+  font-weight: normal; /* Ensures the symbol is not bold */
+  
+  transform: rotate(180deg) scaleX(1.8); /* Rotates the symbol upwards */
+  transform-origin: center; /* Ensures rotation is centered */
+  margin-left: 0.5rem;
+  }
+
 
       .footer-column .content {
         display: none;
