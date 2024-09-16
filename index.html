@@ -1,78 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Footer Example</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     * {
-  box-sizing: border-box;
-}
-body {
-  margin: 0; /* Remove default margin from the body */
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Prevent any horizontal scrolling */
-}
-    .head{
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      /* Remove default margin from the body */
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      /* Prevent any horizontal scrolling */
+    }
+
+    .head {
       width: 100%;
       background-color: black;
       height: 10px;
     }
-   .footer-spacing {
-    width: 100%;
-  background-color: #f0f0f0; /* Set this to any plain background color you prefer */
-  height: 500px; /* Adjust the height as needed */
-}
+
+    .footer-spacing {
+      width: 100%;
+      background-color: #f0f0f0;
+      /* Set this to any plain background color you prefer */
+      height: 500px;
+      /* Adjust the height as needed */
+    }
 
     /* General footer styling */
-    footer { 
-  width: 100%; /* Make sure footer doesn't exceed 100% */
-  max-width: 100%;
-  background-color: rgb(0, 136, 178);
-  padding: 20px;
-  color: rgb(255 255 255 / 77%);
-  font-family: 'Poppins', sans-serif;
-}
-.footer-container {
-  width: 100%;
-  max-width: 1200px; /* Optional: Adjust the maximum width as needed */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  margin: 0 auto; /* Center container horizontally */
-}
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  padding-top: 20px;
-  padding-left: 10px; /* Reduce padding to prevent overflow */
-  padding-right: 10px; /* Add padding-right to avoid overflow on mobile */
-  flex-wrap: wrap; /* Ensure that content wraps on smaller screens */
-}
+    footer {
+      width: 100%;
+      /* Make sure footer doesn't exceed 100% */
+      max-width: 100%;
+      background-color: rgb(0, 136, 178);
+      padding: 20px;
+      color: rgb(255 255 255 / 77%);
+      font-family: 'Poppins', sans-serif;
+    }
 
-.footer-column {
-  flex: 1;
-  margin: 0 80px; /* Adjust margins */
-}
+    .footer-container {
+      width: 100%;
+      max-width: 1200px;
+      /* Optional: Adjust the maximum width as needed */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* Center content vertically */
+      align-items: center;
+      /* Center content horizontally */
+      margin: 0 auto;
+      /* Center container horizontally */
+    }
 
-.footer-column h5 {
-  color: #fff;
-  cursor: pointer;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-}
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-top: 20px;
+      padding-left: 10px;
+      /* Reduce padding to prevent overflow */
+      padding-right: 10px;
+      /* Add padding-right to avoid overflow on mobile */
+      flex-wrap: wrap;
+      /* Ensure that content wraps on smaller screens */
+    }
+
+    .footer-column {
+      flex: 1;
+      margin: 0 80px;
+      /* Adjust margins */
+    }
+
+    .footer-column h5 {
+      color: #fff;
+      cursor: pointer;
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
 
 
     /* Gap between headings on larger screens */
     .footer-column h5:nth-of-type(1) {
-      margin-bottom: 30px; /* Extra gap before the second heading on larger screens */
+      margin-bottom: 30px;
+      /* Extra gap before the second heading on larger screens */
     }
 
     .footer-column ul {
@@ -122,67 +142,74 @@ body {
     /* Mobile styles */
     @media (max-width: 768px) {
       @media (max-width: 768px) {
-  .footer-row {
-    flex-direction: column;
-    padding-left: 0; /* Remove extra padding */
-    padding-right: 0;
-  }
+        .footer-row {
+          flex-direction: column;
+          padding-left: 0;
+          /* Remove extra padding */
+          padding-right: 0;
+        }
 
-  .footer-column {
-    margin-bottom: 20px;
-    text-align: left; /* Align content to the right */
-  }
+        .footer-column {
+          margin-bottom: 20px;
+          text-align: left;
+          /* Align content to the right */
+        }
 
-  .footer-bottom-info {
-    text-align: left; /* Align footer bottom info to the right */
-  }
-}
+        .footer-bottom-info {
+          text-align: left;
+          /* Align footer bottom info to the right */
+        }
+      }
+
       .footer-column h5 {
-        margin-bottom: 15px; /* Consistent gap between headings */
+        margin-bottom: 15px;
+        /* Consistent gap between headings */
       }
 
       .footer-column h5:nth-of-type(1) {
-        margin-bottom: 0; /* Extra gap before the second heading */
+        margin-bottom: 0;
+        /* Extra gap before the second heading */
       }
+
       .footer-column h5::after {
-  content: "ᐯ"; /* Arrow symbol */
-  display: inline-block;
-  font-size: 0.6rem; /* Adjust the size of the arrow */
-  font-weight: bold;
-  width: 20px; /* Set equal width and height for the circle */
-  height: 20px; 
-  transform: scaleX(1.8);
-  line-height: 20px; /* Align the arrow vertically */
-  text-align: center; /* Align the arrow horizontally */
-  border-radius: 50%; /* Make it a perfect circle */
-  margin-left: 0.5rem;
-  background-color: transparent; /* Default background */
-  color: rgba(255, 255, 255, 0.6); /* Default arrow color */
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-  float:right;
+    content: "\f107"; /* FontAwesome down arrow */
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    float: right;
+    width: 20px; /* Set width for the circular background */
+    height: 20px; /* Set height for the circular background */
+    line-height: 20px; /* Vertically center the arrow */
+    text-align: center; /* Horizontally center the arrow */
+    border-radius: 50%; /* Make it a perfect circle */
+    background-color: transparent; /* No background by default */
+    color: rgba(255, 255, 255, 0.6); /* Default arrow color */
 }
 
-/* Rotate the arrow upwards and apply background when its associated content is active */
 .footer-column h5.active::after {
-  transform: rotate(180deg) ; /* Rotate the arrow */
-  background-color: rgb(254, 254, 254); /* Set background to grey when active */
-  color: black; /* Set arrow color to black */
+    transform: rotate(180deg); /* Rotate the arrow upwards */
+    background-color: #fff; /* White background when clicked */
+    color: black; /* Arrow color changes to black */
 }
 
 
 
-     
+
 
       /* Remove arrow for specific headings */
       .footer-column.no-arrow h5::after {
-        content: ""; /* Remove arrow */
+        content: "";
+        /* Remove arrow */
         display: none;
       }
 
       .footer-column .content {
         display: none;
         padding: 10px;
-        background-color: transparent; /* Remove background color */
+        background-color: transparent;
+        /* Remove background color */
       }
 
       .footer-column .content.active {
@@ -196,6 +223,7 @@ body {
     }
   </style>
 </head>
+
 <body>
   <header class="head"></header>
   <div class="footer-spacing"></div>
@@ -205,7 +233,7 @@ body {
       <div class="footer-row">
         <div class="footer-column">
           <h5>IMPORTANT LINKS</h5>
-          <div class="content">
+          <div class="content content1">
             <ul>
               <li><a href="#">Contact Us</a></li>
               <li><a href="#">About Us</a></li>
@@ -217,9 +245,9 @@ body {
               <li><a href="#">Privacy Policy</a></li>
             </ul>
           </div>
-          
+
           <h5 class="gap">US AND CANADIAN CITIES</h5>
-          <div class="content">
+          <div class="content content">
             <p style="color: #fff;">GAO Tek serves North America – <a href="#">Learn More</a></p>
           </div>
         </div>
@@ -228,16 +256,17 @@ body {
           <h5>HEAD OFFICE USA</h5> <!-- No dropdown and no arrow -->
           <div class="content">
             <p>GAO Tek Inc.<br>
-            244 Fifth Avenue, Suite A31<br>
-            Manhattan, New York,<br>
-            N.Y., 10001<br>
-            USA</p>
+              244 Fifth Avenue, Suite A31<br>
+              Manhattan, New York,<br>
+              N.Y., 10001<br>
+              USA</p>
 
             <p><strong>Call Us</strong><br>
-            Toll Free: 1-877-585-9555</p>
+              Toll Free: 1-877-585-9555</p>
 
             <p><strong>Email Us</strong><br>
-            <a href="mailto:sales@gaotek.com">sales@gaotek.com</a></p>
+              <a href="mailto:sales@gaotek.com">sales@gaotek.com</a>
+            </p>
           </div>
         </div>
 
@@ -245,25 +274,25 @@ body {
           <h5>CANADIAN OFFICE</h5> <!-- No dropdown and no arrow -->
           <div class="content">
             <p>GAO Tek Inc.<br>
-            1885 Clements Rd, Suites 215-218<br>
-            Pickering, Greater Toronto Area<br>
-            Ontario, L1W 3V4<br>
-            Canada</p>
+              1885 Clements Rd, Suites 215-218<br>
+              Pickering, Greater Toronto Area<br>
+              Ontario, L1W 3V4<br>
+              Canada</p>
 
             <p><strong>Call Us</strong><br>
-            Toll Free: 1-877-585-9555<br>
-            Phone: 289-660-5590<br>
-            Fax: 289-660-5591</p>
+              Toll Free: 1-877-585-9555<br>
+              Phone: 289-660-5590<br>
+              Fax: 289-660-5591</p>
 
             <p><strong>Email Us</strong><br>
-            <a href="mailto:sales@gaotek.com">sales@gaotek.com</a></p>
+              <a href="mailto:sales@gaotek.com">sales@gaotek.com</a>
+            </p>
 
             <!-- Removed "Find Us" heading -->
             <div class="content">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.649426944253!2d-74.0015460845915!3d40.74751197932696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ab460c37b5%3A0x7a9dcb9792fc0dc3!2s244%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sin!4v1694358384271!5m2!1sen!2sin" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.649426944253!2d-74.0015460845915!3d40.74751197932696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ab460c37b5%3A0x7a9dcb9792fc0dc3!2s244%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sin!4v1694358384271!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -276,36 +305,37 @@ body {
   </footer>
 
   <script>
-   const headings = document.querySelectorAll('footer h5');
-const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+    const headings = document.querySelectorAll('footer h5');
+    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
 
-function toggleContent(heading) {
-  // Only toggle on mobile screens and ignore specific headings
-  if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
-    heading.classList.toggle('active');
-    const content = heading.nextElementSibling;
-    content.classList.toggle('active');
-  }
-}
-
-headings.forEach((heading) => {
-  heading.addEventListener('click', () => toggleContent(heading));
-});
-
-function handleScreenChange(e) {
-  headings.forEach((heading) => {
-    const content = heading.nextElementSibling;
-    if (e.matches) {
-      content.classList.remove('active');
-    } else {
-      content.classList.add('active');
+    function toggleContent(heading) {
+      // Only toggle on mobile screens and ignore specific headings
+      if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
+        heading.classList.toggle('active');
+        const content = heading.nextElementSibling;
+        content.classList.toggle('active');
+      }
     }
-  });
-}
 
-handleScreenChange(mobileMediaQuery);
-mobileMediaQuery.addListener(handleScreenChange);
+    headings.forEach((heading) => {
+      heading.addEventListener('click', () => toggleContent(heading));
+    });
+
+    function handleScreenChange(e) {
+      headings.forEach((heading) => {
+        const content = heading.nextElementSibling;
+        if (e.matches) {
+          content.classList.remove('active');
+        } else {
+          content.classList.add('active');
+        }
+      });
+    }
+
+    handleScreenChange(mobileMediaQuery);
+    mobileMediaQuery.addListener(handleScreenChange);
 
   </script>
 </body>
+
 </html>
