@@ -206,15 +206,15 @@
       }
 
       .footer-column .content {
-        display: none;
-        padding: 10px;
-        background-color: transparent;
-        /* Remove background color */
-      }
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease; /* Smooth transition for height and padding */
+}
 
-      .footer-column .content.active {
-        display: block;
-      }
+.footer-column .content.active {
+  max-height: 500px; /* Adjust the height based on content */
+  padding: 10px 0; /* Add padding when active */
+}
 
       /* Ensure content of no-dropdown is always visible */
       .footer-column.no-dropdown .content {
@@ -254,7 +254,7 @@
 
         <div class="footer-column no-dropdown no-arrow">
           <h5>HEAD OFFICE USA</h5> <!-- No dropdown and no arrow -->
-          <div class="content">
+          <div class="content1">
             <p>GAO Tek Inc.<br>
               244 Fifth Avenue, Suite A31<br>
               Manhattan, New York,<br>
@@ -272,7 +272,7 @@
 
         <div class="footer-column map-container no-dropdown no-arrow">
           <h5>CANADIAN OFFICE</h5> <!-- No dropdown and no arrow -->
-          <div class="content">
+          <div class="content1">
             <p>GAO Tek Inc.<br>
               1885 Clements Rd, Suites 215-218<br>
               Pickering, Greater Toronto Area<br>
@@ -289,7 +289,7 @@
             </p>
 
             <!-- Removed "Find Us" heading -->
-            <div class="content">
+            <div class="content1">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.649426944253!2d-74.0015460845915!3d40.74751197932696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259ab460c37b5%3A0x7a9dcb9792fc0dc3!2s244%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sin!4v1694358384271!5m2!1sen!2sin"
                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -309,13 +309,22 @@
     const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
 
     function toggleContent(heading) {
-      // Only toggle on mobile screens and ignore specific headings
-      if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
-        heading.classList.toggle('active');
-        const content = heading.nextElementSibling;
-        content.classList.toggle('active');
-      }
+  // Only toggle on mobile screens and ignore specific headings
+  if (window.innerWidth <= 768 && !heading.parentElement.classList.contains('no-dropdown')) {
+    heading.classList.toggle('active');
+    const content = heading.nextElementSibling;
+    
+    // Slide down effect
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null; // Collapse content
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px"; // Expand content
     }
+
+    content.classList.toggle('active');
+  }
+}
+
 
     headings.forEach((heading) => {
       heading.addEventListener('click', () => toggleContent(heading));
